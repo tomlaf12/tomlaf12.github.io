@@ -1,0 +1,260 @@
+\documentclass[11pt]{article}
+
+% ================ PACKAGES ====================
+
+\usepackage[reset, a4paper, margin=6mm, top=7mm, right=4mm]{geometry}
+% text alignment
+\usepackage{ragged2e}
+% loremipsum
+\usepackage{lipsum}
+% text color
+\usepackage{color}
+\usepackage{xcolor}
+% underline
+\usepackage{ulem}
+\usepackage{contour}
+% multiple columns
+\usepackage{paracol}
+% custom fonts
+\usepackage{fontspec}
+% paper bg
+\usepackage{eso-pic}
+% icons
+\usepackage{fontawesome5}
+% hyperlinks
+\usepackage{hyperref}
+% better itemize
+\usepackage{enumitem}
+
+% ================ SETTINGS ====================
+
+\setlist[itemize]{noitemsep, topsep=-2pt, leftmargin=2ex}
+
+\setromanfont{CormorantGaramond}
+\setsansfont{SourceSerifPro}
+\renewcommand{\familydefault}{\rmdefault}
+
+% no page numbers and the sorts
+\thispagestyle{empty}
+% no indentation at beginning of paragraph
+\parindent=0pt
+% for underline
+\renewcommand{\ULdepth}{3pt}
+\renewcommand{\ULthickness}{0.5pt}
+\contourlength{2.0pt}
+
+% for links
+\hypersetup{
+    colorlinks=false,
+    pdfborder = {0 0 0},
+}
+
+% no hyphenation
+\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
+
+% ================ MACROS ======================
+
+\newfontfamily\titlethin{CormorantGaramond-Light}
+\newfontfamily\titlethick{CormorantGaramond-Medium}
+\newfontfamily\titlebold{CormorantGaramond-Bold}
+\newfontfamily\normaltext{SourceSerifPro}
+
+\newcommand{\resumetitle}[3]{
+    \AddToShipoutPictureBG{
+        \AtPageUpperLeft {
+        \raisebox{-0.09\paperheight}{
+            \color{black!85}\rule{2\paperwidth}{\paperheight}}
+        }}
+    \begin{Center}
+        \begingroup
+        \titlethin
+        \color{black!10}\Huge{#1}
+        \titlethick
+        \color{black!5}\Huge{#2} \\
+        \vspace{2mm}
+        \textrm{\color{black!15}\Large{#3}}
+        \endgroup
+    \end{Center}
+    \vspace{7mm}
+}
+
+\newcommand{\betteruline}[1]{
+    \uline{#1}
+}
+
+\newcommand{\sectiontitle}[1]{
+    \begingroup
+        \titlebold
+        \betteruline{\Large\uppercase{#1}  }
+        \vspace{1.7mm}
+    \endgroup
+}
+
+\newcommand{\sectioncontent}[1]{
+    \begingroup
+        \begin{FlushLeft}
+        \vspace{-3mm}
+        \sffamily\small#1
+        \end{FlushLeft}
+    \endgroup
+    \vspace{2mm}
+}
+
+\newcommand{\job}[3]{
+    \begingroup
+        \textbf{\small#1} - \small#2
+        \hfill\color{black!70}\small{#3}
+    \endgroup
+}
+
+\newcommand{\project}[2]{
+    \begingroup
+        \textbf{\small#1}
+        \hfill\color{black!70}\small{#2}
+    \endgroup
+}
+
+\newcommand{\spacevv}{
+    \vspace{2mm}
+}
+
+\newcommand{\honor}[2]{
+    \textcolor{black!70}{#1} - #2 \\
+    \vspace{1.5mm}
+}
+
+\begin{document}
+    \resumetitle{Thomas}{Laframboise} {
+        thomas.laframboise.1@ulaval.ca |
+        (819)583-7421 
+    }
+
+    \columnratio{0.31}
+    \setlength{\columnsep}{7mm}
+    \begin{paracol}{2}
+
+    \sectiontitle{Profile}
+    \sectioncontent{
+        Diplômé en économie et politique et actuellement inscrit à la maîtrise en études internationales à l’Université Laval, j’ai travaillé comme agent de vérification à l’Autorité des marchés publics et je suis depuis 2025 agent de recherche et de planification socioéconomique au ministère de l’Économie, de l’Innovation et de l’Énergie du Québec.
+    }
+
+    \sectiontitle{Compétences}
+    \sectioncontent{
+        \textbf{Maîtrise d’Excel} \\
+        \vspace{2mm}
+        \textbf{Maîtrise de la programation en R} \\
+         \vspace{2mm}
+        \textbf{Maîtrise de Stata} \\
+        \vspace{2mm}
+        \textbf{Maîtrise de l'anglais et du français} \\
+    }
+
+    \sectiontitle{Éducation}
+    \sectioncontent{
+        \textbf{Maîtrise en études internationales- commerce international et
+ investissement} \\
+        Université Laval \\
+        \textcolor{black!70}{Septembre 2025} \\
+        \vspace{2mm}
+        \textbf{BAC intégré en économie et
+ politique} \\
+        Université Laval \\
+        \textcolor{black!70}{2021 - 2025} \\
+         \vspace{2mm}
+        \textbf{Certificat en littérature
+ française} \\
+        Université Laval \\
+        \textcolor{black!70}{2020 - 2021} \\
+    }
+
+    \sectiontitle{links}
+    \sectioncontent{
+        \faIcon{github-alt}\hspace{2mm}
+        \href{https://github.com/tomlaf12/tomlaf12.github.io}{github} \\
+        \faIcon{linkedin-in}\hspace{2.1mm}
+        \href{https://www.linkedin.com/in/thomas-laframboise-59b026b3/?originalSubdomain=ca}{linkedin} \\
+        \faIcon{link}\hspace{1.8mm}
+        \href{https://tomlaf12.github.io/}{website}
+    }
+
+    \sectiontitle{Activités et passions}
+    \sectioncontent{
+        Entrainement en salle\\
+        Soccer \\
+        Vollier \\
+        Course à pied\\
+        Golf\\
+    }
+
+    \switchcolumn
+
+    \sectiontitle{expérience}
+    \sectioncontent{
+
+      \job{Ministère de l’Économie, de l’Innovation et de l’Énergie
+ du Québec}{Agent de planification et de recherche socio-économique en
+ réseaux thermiques (Étudiant)}{Juillet 2025 à ce jour}
+      \begin{itemize}
+        \item Effectuer différentes recherches sur des questions socio-économique par rapport aux énergies et aux réseaux thermiques. 
+        \item Analyser différents phénomènes entourant l’énergie. 
+        \item Déterminer des recommandations par rapport au domaine de l’énergie. 
+      \end{itemize}
+      \spacevv
+
+      \job{Autorité des marchés publics}{Agent à l’admissibilité et à la vérification (Étudiant)}{Avril à Novembre 2023}
+      \begin{itemize}
+        \item Approfondir les recherches et recueillir les informations des assujettis. 
+        \item Faire l’analyse et la synthèse des informations.
+        \item Déterminer l’intégrité des assujettis.
+      \end{itemize}
+       \spacevv
+
+      \job{La Maison Simons Place Ste-Foy}{Conseiller à la vente}{Novembre 2020 à Juillet 2025}
+      \begin{itemize}
+        \item Conseiller les clients
+        \item Promouvoir les produits en magasin
+        \item Apporter les modèles et les tailles de vêtements désirées aux clients
+      \end{itemize}
+    }
+
+    \sectiontitle{Projet personnel}
+    \sectioncontent{
+
+        \project{\href{example.com}{Projet d’analyse sur l’évitement fiscal et les paradis fiscaux au Canada}}{Hiver 2023}
+        \begin{itemize}
+            \item Rechercher sur le sujet d’étude 
+            \item Faire une revue de littérature
+            \item Analyser les données
+            \item Synthétiser les résultats pour répondre à la question de recherche
+        \end{itemize}
+        \spacevv
+
+        \project{\href{example.com}{Simulation d’une négociation à l’OMC concernant les subventions sur
+ les exportations agricoles}}{Automne 2023}
+        \begin{itemize}
+            \item Choisir un pays à représenter (Afrique du Sud)
+            \item Analyser les politiques économiques du pays
+            \item Déterminer ses objectifs concernant le sujet des négociations
+            \item Débattre et négocier afin d’obtenir une entente avantageuse
+        \end{itemize}
+        \spacevv
+    }
+
+    \sectiontitle{Bénévolat et autres activités}
+    \sectioncontent{
+      
+          \job{Défi entreprises, course à pied}{Participant pour La Maison Simons}{2023}
+          \spacevv
+        
+          \job{Relais pour la vie, Lac-Mégantic}{Participant}{2016}
+          \spacevv
+    }
+
+    \normaltext \hfill \tiny Mise à jour \today
+
+    \end{paracol}
+
+\end{document}
